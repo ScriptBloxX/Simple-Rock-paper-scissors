@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Anybody:wght@300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-drag: none;
+    font-family: 'Anybody', cursive;
+}
+html,body{
+    background-color: #151515;
+}
+/*loading screen*/
+.loading-screen{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: #15191f;
+    opacity: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+.loading-screen img{
+    position: fixed;
+}
+.loading-screen h2{
+    position: relative;
+    color: #fff;
+    font-size: 2rem;
+    z-index: 2;
+    top: 3.5rem;
+}
+/*matching-box*/
+.matching-box{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 30%;
+    padding: .2rem;
+    top: 5rem;
+    justify-content: center;
+    transition: all linear .2s;
+}
+.box{
+    position: relative;
+    background-color: #ececec;
+    width: 300px;
+    height: 350px;
+    border-radius: 1rem;
+    padding: 1rem;
+    overflow: hidden;
+}
+.win{
+    background-color: #61ff7c;
+}
+.lost{
+    background-color: #f34d4d;
+}
+.draw{
+    background-color: #333333;
+}
+.matching-box .box img{
+    height: 100%;
+    position: absolute;
+    max-width: 300px;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    transition: all linear .2s;
+}
+.matching-box .resize{
+    transform: scale(1.5);
+}
+#player1{
+    border: .5rem solid sandybrown;
+}
+
+/*item container*/
+.tool-container{
+    position: absolute;
+    bottom: 1rem;
+    
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    padding: 1rem;
+    width: 100%;
+    justify-content: center;
+}
+.tool-container h2{
+    position: absolute;
+    color: #fff;
+    font-size: 2rem;
+    text-transform: capitalize;
+    padding: 1rem;
+    bottom: 15rem;
+    background-color: #cfc100;
+    border-radius: 1rem;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+    transition: all linear .2s;
+}
+.tool-container h2:hover{
+    transform: scale(1.1);
+}
+.tool-container img{
+    background-color: #ececec;
+    max-width: 200px;
+    border-radius: 1rem;
+    padding: 1rem;
+    transition: all linear .2s;
+    cursor: pointer;
+}
+.tool-container img:hover{
+    transform: scale(1.1);
+}
+/*loading bar*/
+.loading-bar{
+    position: absolute;
+    width: 60%;
+    height: 30px;
+    border-radius: 5px;
+    bottom: 140%;
+    transition: all linear .2s;
+    border: .2rem solid #fff;
+    overflow: hidden;
+    visibility: hidden;
+}
+@keyframes bar-animate{
+    0% {transform: scaleX(1);}
+    100% {transform: scaleX(0);}
+}
+.loading-bar .bar{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    transform: scaleX(1);
+}
+.bar-animate{
+    animation: bar-animate 5s forwards;
+}
+
+/*responsive*/
+@media only screen and (max-width: 900px) {
+    .matching-box{
+        gap: 5%;
+    }
+}
+@media only screen and (max-width: 640px) {
+    .matching-box{
+        gap: 1rem;
+        flex-direction: column;
+        align-items: center;
+    }
+    .box{
+        height: 250px;
+        width: 250px;
+    }
+}
+@media only screen and (max-width: 267px) {
+    .box{
+        height: 150px;
+        width: 150px;
+    }
+}
+@media only screen and (max-width: 650px) {
+    .loading-screen img{
+        width: 600px;
+    }
+    .tool-container h2{
+        bottom: 100%;
+    }
+    .loading-bar{
+        bottom: 170%;
+    }
+    .tool-container img{
+        max-width: 30%;
+    }
+}
